@@ -24,7 +24,7 @@
     overflow-x: hidden;
   }
 
-  /* Top Metadata Bar */
+  /* Top Bar - Fixed */
   .header-meta {
     display: flex;
     justify-content: space-between;
@@ -33,6 +33,14 @@
     text-transform: uppercase;
     padding: 15px 40px;
     border-bottom: 1px solid var(--grid-lines);
+    background-color: var(--bg-paper);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    height: 50px;
   }
 
   .header-meta a {
@@ -45,7 +53,7 @@
     border-bottom-color: var(--text-main);
   }
 
-  /* Bottom Metadata Bar */
+  /* Bottom Bar - Fixed */
   .footer-meta {
     display: flex;
     justify-content: center;
@@ -61,7 +69,8 @@
     width: 100%;
     background-color: var(--bg-paper);
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 100;
+    height: 50px;
   }
 
   /* Main Layout */
@@ -70,16 +79,93 @@
     grid-template-columns: repeat(12, 1fr);
     max-width: 1600px;
     margin: 0 auto;
-    padding: 40px 40px 80px 40px; 
+    padding: 0 40px; 
     gap: 40px;
+    min-height: 100vh;
+  }
+
+  /* LEFT Column - Fixed */
+  .sidebar {
+    grid-column: 1 / 5;
+    position: fixed;
+    top: 100px;
+    width: calc(33.33% - 60px); 
+    max-width: 450px;
+    z-index: 50;
   }
 
   /* Typography */
   h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
   
-  .project-header {
-    grid-column: 1 / 9;
-    margin-bottom: 30px;
+  .profile-name {
+    font-size: 36px;
+    line-height: 1.0;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .profile-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px; 
+  }
+
+  .bio-text {
+    margin-bottom: 30px; 
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contact-links {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+  }
+  
+  .contact-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-main);
+    width: fit-content;
+  }
+  
+  .contact-links a:hover {
+    color: var(--text-muted);
+    border-bottom-color: var(--text-muted);
+  }
+
+  /* RIGHT Column */
+  .project-content {
+    grid-column: 6 / 13;
+    padding-top: 170px; 
+    padding-bottom: 100px;
+  }
+
+  /* FIXED Header - Full width to the right edge to prevent bleed */
+  .project-header-fixed {
+    position: fixed;
+    top: 50px; 
+    left: 41.66%; 
+    right: 0;     
+    background-color: var(--bg-paper);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    z-index: 80; 
+    border-bottom: 1px solid var(--grid-lines);
+    box-sizing: border-box;
+  }
+
+  /* Inner container to align the text with the images below */
+  .header-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
   .project-meta {
@@ -106,7 +192,6 @@
 
   /* Image Grid */
   .image-grid {
-    grid-column: 1 / 13;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -137,6 +222,46 @@
     width: 100%;
   }
 
+  /* --- MOBILE RESPONSIVE OVERRIDES --- */
+  @media (max-width: 900px) {
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .sidebar {
+      position: relative;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .project-content {
+      padding: 0;
+      width: 100%;
+    }
+
+    .project-header-fixed {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--grid-lines);
+    }
+
+    .header-inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .image-grid {
+      grid-template-columns: 1fr; 
+    }
+  }
 </style>
 </head>
 <body>
@@ -149,54 +274,76 @@
 
   <div class="main-container">
 
-    <!-- Project Header & Description -->
-    <div class="project-header">
-      <h1>Textile Waste</h1>
-      <div class="project-meta">
-        <span>2026</span>
-        <span>Material Study</span>
-      </div>
+    <!-- LEFT Column: Fixed Sidebar -->
+    <div class="sidebar">
+      <h1 class="profile-name">WELLS<br>LAMHAOUAR</h1>
+      <div class="profile-title">Bachelor of Architecture (5-Year) @ RISD<br>Concentration in Nature, Culture & Sustainability</div>
       
+      <div class="bio-text">
+        I am an architecture student focusing on spatial design, material research, and visualization. My work explores how systems of assembly, environmental context, and material performance can inform the design of functional, sensitive spaces.
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
+        <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
+        <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
+      </div>
+    </div>
+
+    <!-- RIGHT Column: Project Content -->
+    <div class="project-content" id="projectContent">
+      
+      <!-- FIXED Header (Title & Meta) -->
+      <div class="project-header-fixed" id="fixedHeader">
+        <div class="header-inner">
+          <h1>Textile Waste</h1>
+          <div class="project-meta">
+            <span>2026</span>
+            <span>Material Study</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling Content -->
       <div class="description">
         <p>Developed for the Muuto Design Contest, this project is a series of trays and stands designed around the transition between indoor and outdoor living. The trays move between context, serving as a surface for preparation inside, a vessel for carrying food and objects outdoors, and a shared platter once placed in its final setting. Used independently or elevated on a stand, the system adapts to different environments and occasions, encouraging a more fluid relationship between interior and exterior space.</p>
 
         <p>The trays are made from recycled textile scraps, giving discarded materials a second life in a durable, functional object. The textile waste is processed and formed into trays, creating a tactile and varied surface that reflects its recycled origin. By transforming waste into an everyday object intended for repeated use, the project explores how material circularity can become an integral part of both the object’s function and character.</p>
       </div>
-    </div>
 
-    <!-- 5 Images -->
-    <div class="image-grid">
-      
-      <!-- Image 1 -->
-      <div class="image-item">
-        <img src="images/tw-01.jpg" alt="Trivet with Metal Base">
-        <div class="caption">Fig. 01 — Trivet with Metal Base</div>
+      <div class="image-grid">
+        
+        <!-- Image 1 -->
+        <div class="image-item">
+          <img src="images/tw-01.jpg" alt="Trivet with Metal Base">
+          <div class="caption">Fig. 01 — Trivet with Metal Base</div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-item">
+          <img src="images/tw-02.jpg" alt="Trivet with Wooden Base">
+          <div class="caption">Fig. 02 — Trivet with Wooden Base</div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="image-item">
+          <img src="images/tw-03.jpg" alt="Trivet with Powder Coated Base">
+          <div class="caption">Fig. 03 — Trivet with Powder-Coated Base</div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="image-item">
+          <img src="images/tw-04.jpg" alt="Stacking Condition">
+          <div class="caption">Fig. 04 — Stacking Condition</div>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="image-item">
+          <img src="images/tw-05.jpg" alt="Outdoor Application">
+          <div class="caption">Fig. 05 — Outdoor Application</div>
+        </div>
+
       </div>
-
-      <!-- Image 2 -->
-      <div class="image-item">
-        <img src="images/tw-02.jpg" alt="Trivet with Wooden Base">
-        <div class="caption">Fig. 02 — Trivet with Wooden Base</div>
-      </div>
-
-      <!-- Image 3 -->
-      <div class="image-item">
-        <img src="images/tw-03.jpg" alt="Trivet with Powder Coated Base">
-        <div class="caption">Fig. 03 — Trivet with Powder-Coated Base</div>
-      </div>
-
-      <!-- Image 4 -->
-      <div class="image-item">
-        <img src="images/tw-04.jpg" alt="Stacking Condition">
-        <div class="caption">Fig. 04 — Stacking Condition</div>
-      </div>
-
-      <!-- Image 5 -->
-      <div class="image-item">
-        <img src="images/tw-05.jpg" alt="Outdoor Application">
-        <div class="caption">Fig. 05 — Outdoor Application</div>
-      </div>
-
     </div>
   </div>
 
@@ -206,6 +353,23 @@
     <span>Greenwich, CT</span>
     <span>New York, NY</span>
   </div>
+
+  <script>
+    function adjustPadding() {
+      const header = document.getElementById('fixedHeader');
+      const content = document.getElementById('projectContent');
+      
+      if (header && content && window.innerWidth > 900) {
+        const headerHeight = header.offsetHeight;
+        content.style.paddingTop = (headerHeight + 40 + 50) + 'px'; 
+      } else if (content) {
+        content.style.paddingTop = '0px';
+      }
+    }
+
+    window.addEventListener('load', adjustPadding);
+    window.addEventListener('resize', adjustPadding);
+  </script>
 
 </body>
 </html>
