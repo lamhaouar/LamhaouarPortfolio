@@ -25,8 +25,8 @@
     color: var(--text-main);
     margin: 0;
     padding: 0;
-    font-size: 12px; /* Slightly smaller base font */
-    line-height: 1.4; /* Tighter line height */
+    font-size: 12px;
+    line-height: 1.4; 
     overflow-x: hidden;
   }
 
@@ -37,7 +37,7 @@
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
-    padding: 12px 40px; /* Reduced padding */
+    padding: 12px 40px; 
     border-bottom: 1px solid var(--grid-lines);
   }
 
@@ -49,7 +49,7 @@
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
-    padding: 12px 40px; /* Reduced padding */
+    padding: 12px 40px; 
     border-top: 1px solid var(--grid-lines);
     position: fixed;
     bottom: 0;
@@ -66,8 +66,8 @@
     grid-template-columns: repeat(12, 1fr);
     max-width: 1600px;
     margin: 0 auto;
-    padding: 30px 40px 60px 40px; /* Reduced padding */
-    gap: 30px; /* Reduced gap */
+    padding: 30px 40px 60px 40px; 
+    gap: 30px; 
   }
 
   /* Typography */
@@ -148,7 +148,7 @@
     grid-column: 6 / 13;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Hugely reduced gap between sections */
+    gap: 25px; 
   }
 
   /* Projects */
@@ -162,7 +162,7 @@
     display: grid;
     grid-template-columns: 50px 1fr 120px 80px 30px;
     align-items: center;
-    padding: 8px 0; /* Reduced padding */
+    padding: 8px 0; 
     border-bottom: 1px solid var(--grid-lines);
     text-decoration: none;
     color: var(--text-main);
@@ -235,8 +235,8 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns to save vertical space */
-    gap: 10px; 
+    grid-template-columns: 1fr 1fr; /* 2 columns so they stack 2x2 */
+    gap: 12px; 
   }
 
   .experience-item {
@@ -248,7 +248,7 @@
     font-family: 'Space Mono', monospace;
     font-size: 9px;
     color: var(--text-muted);
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
 
   .exp-role { font-weight: 700; font-size: 12px; line-height: 1.2; }
@@ -308,14 +308,14 @@
           
           <!-- Project 1 -->
           <a href="saint-gobain.html" class="project-row" 
-             data-bg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop">
+             data-bg="images/sg-03.jpg">
             <span class="proj-num">01</span>
             <div>
               <div class="proj-name">Saint Gobain</div>
               <span class="tag tag-orange">Competition</span>
               <span class="tag-text">- National Finalist</span>
             </div>
-            <span class="proj-type">Adaptive Reuse</span>
+            <span class="proj-type">Campus</span>
             <span class="proj-year">2025</span>
             <span class="proj-arrow">→</span>
           </a>
