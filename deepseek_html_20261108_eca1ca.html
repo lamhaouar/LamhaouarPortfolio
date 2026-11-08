@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wells Lamhaouar — Architecture Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-paper: #FAFAFA;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --grid-lines: #E0E0E0;
+    
+    /* Strictly Non-Primary Hues (Secondary/Tertiary Only) */
+    --accent-purple: #C5A8D4;   /* Lavender/Lilac (Red + Blue) */
+    --accent-green: #A4D4B4;    /* Seafoam Green (Yellow + Blue) */
+    --accent-teal: #89C9C2;     /* Teal/Cyan (Green + Blue) */
+    --accent-orange: #E8B896;   /* Warm Terracotta/Peach (Red + Yellow) */
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.6; 
+    overflow-x: hidden;
+  }
+
+  /* Top Metadata Bar */
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 20px 40px; 
+    border-bottom: 1px solid var(--grid-lines);
+  }
+
+  /* Bottom Metadata Bar */
+  .footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 20px 40px; 
+    border-top: 1px solid var(--grid-lines);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-paper);
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 50px 40px 90px 40px; 
+    gap: 40px;
+  }
+
+  /* Typography */
+  h1, h2, h3 { margin: 0; font-weight: 700; }
+  
+  .profile-name {
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .profile-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 25px; 
+  }
+
+  .bio-text {
+    margin-bottom: 35px; 
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .contact-links {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    margin-bottom: 45px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+  }
+  
+  .contact-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-main);
+    width: fit-content;
+  }
+  
+  .contact-links a:hover {
+    color: var(--text-muted);
+    border-bottom-color: var(--text-muted);
+  }
+
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--text-main);
+    padding-bottom: 5px;
+    margin-bottom: 18px; 
+    display: block;
+  }
+
+  /* Sub-category Header */
+  .sub-header {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 25px; 
+    margin-bottom: 8px; 
+    padding-left: 50px; 
+  }
+
+  /* Left Column: Bio */
+  .sidebar {
+    grid-column: 1 / 5;
+  }
+
+  /* Right Column: Projects & Experience */
+  .main-content {
+    grid-column: 6 / 13;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+  }
+
+  /* Projects */
+  .index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 120px 100px 40px;
+    align-items: center;
+    padding: 12px 0; 
+    border-bottom: 1px solid var(--grid-lines);
+    text-decoration: none;
+    color: var(--text-main);
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .project-row:hover {
+    background-color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-bottom-color: transparent;
+  }
+
+  .proj-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); }
+  .proj-name { font-size: 17px; font-weight: 700; } 
+  .proj-type { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
+  .proj-year { font-family: 'Space Mono', monospace; font-size: 11px; }
+  .proj-arrow { font-family: 'Space Mono', monospace; font-size: 14px; text-align: right; }
+
+  /* The Highlight Tags & Text */
+  .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    margin-top: 4px;
+    color: #111; 
+  }
+  
+  .tag-orange { background-color: var(--accent-orange); }
+  .tag-purple { background-color: var(--accent-purple); }
+  
+  .tag-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+
+  /* --- SUSTAINABILITY OVERRIDES --- */
+  .project-row.sub-item {
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  .project-row.sub-item .proj-name {
+    font-size: 15px; 
+    color: #444444; 
+    font-weight: 600;
+  }
+
+  .project-row.sub-item .proj-num,
+  .project-row.sub-item .proj-type,
+  .project-row.sub-item .proj-year {
+    opacity: 0.6; 
+  }
+
+  .project-row.sub-item .proj-arrow {
+    opacity: 0.3;
+  }
+
+  /* Experience & Education List */
+  .experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; 
+  }
+
+  .experience-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exp-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .exp-role { font-weight: 700; font-size: 14px; line-height: 1.3; }
+  .exp-firm { color: var(--text-muted); font-size: 13px; }
+
+  /* The Floating Hero Image on Hover */
+  .hover-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+    border: 1px solid var(--grid-lines);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-meta">
+    <span>Portfolio / 2026</span>
+    <span>Wells Lamhaouar</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- LEFT Column: Name, Bio, Contact -->
+    <div class="sidebar">
+      <h1 class="profile-name">WELLS<br>LAMHAOUAR</h1>
+      <div class="profile-title">Bachelor of Architecture @ RISD<br>Concentration in Nature, Culture & Sustainability</div>
+      
+      <div class="bio-text">
+        As an architecture student, my work focuses on the intersection of environmental design, adaptive reuse, and material performance. I approach projects as systems—analyzing context, culture, and sustainability to build spaces that are both functional and sensitive to their environments.
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
+        <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
+        <!-- Resume Link Added Here -->
+        <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
+      </div>
+    </div>
+
+    <!-- RIGHT Column: Projects, then Experience below -->
+    <div class="main-content">
+      
+      <!-- Projects Section -->
+      <div>
+        <div class="section-title">Project Index</div>
+        <ul class="index-list">
+          
+          <!-- Project 1 -->
+          <a href="saint-gobain.html" class="project-row" 
+             data-bg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">01</span>
+            <div>
+              <div class="proj-name">Saint Gobain</div>
+              <span class="tag tag-orange">Competition</span>
+              <span class="tag-text">- National Finalist</span>
+            </div>
+            <span class="proj-type">Adaptive Reuse / Masterplan</span>
+            <span class="proj-year">2025</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="design-within-reach.html" class="project-row"
+             data-bg="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">02</span>
+            <div>
+              <div class="proj-name">Design Within Reach</div>
+              <span class="tag tag-purple">Professional</span>
+            </div>
+            <span class="proj-type">Retail</span>
+            <span class="proj-year">2026</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Project 3 -->
+          <a href="boys-girls-club.html" class="project-row"
+             data-bg="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">03</span>
+            <div>
+              <div class="proj-name">Boys and Girls Club</div>
+              <span class="tag tag-purple">Professional</span>
+            </div>
+            <span class="proj-type">Community Center</span>
+            <span class="proj-year">2025</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Project 4 -->
+          <a href="massdot.html" class="project-row"
+             data-bg="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">04</span>
+            <div>
+              <div class="proj-name">Massachusetts Dept. of Transportation</div>
+              <span class="tag tag-purple">Professional</span>
+            </div>
+            <span class="proj-type">Office</span>
+            <span class="proj-year">2025</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Sub-category Header -->
+          <div class="sub-header">Sustainability</div>
+
+          <!-- Sustainability Project 1 -->
+          <a href="sundial-lupine.html" class="project-row sub-item" data-bg="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">05</span>
+            <div>
+              <div class="proj-name">Sundial Lupine</div>
+            </div>
+            <span class="proj-type">Conservation</span>
+            <span class="proj-year">2026</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Sustainability Project 2 -->
+          <a href="textile-waste.html" class="project-row sub-item" data-bg="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">06</span>
+            <div>
+              <div class="proj-name">Textile Waste</div>
+            </div>
+            <span class="proj-type">Material Study</span>
+            <span class="proj-year">2026</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Sustainability Project 3 -->
+          <a href="hemp-bamboo.html" class="project-row sub-item" data-bg="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">07</span>
+            <div>
+              <div class="proj-name">Hemp / Bamboo</div>
+            </div>
+            <span class="proj-type">Material Study</span>
+            <span class="proj-year">2026</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+          <!-- Sustainability Project 4 -->
+          <a href="avian-study.html" class="project-row sub-item" data-bg="https://images.unsplash.com/photo-1444464666168-49d633b867a9?q=80&w=800&auto=format&fit=crop">
+            <span class="proj-num">08</span>
+            <div>
+              <div class="proj-name">Avian Study</div>
+            </div>
+            <span class="proj-type">Field Research</span>
+            <span class="proj-year">2025</span>
+            <span class="proj-arrow">→</span>
+          </a>
+
+        </ul>
+      </div>
+
+      <!-- Experience Section -->
+      <div>
+        <div class="section-title">Experience</div>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <span class="exp-date">Interiors Intern</span>
+            <span class="exp-role">MillerKnoll</span>
+          </li>
+          <li class="experience-item">
+            <span class="exp-date">Intern</span>
+            <span class="exp-role">Austin Architects</span>
+          </li>
+          <li class="experience-item">
+            <span class="exp-date">Teaching Assistant</span>
+            <span class="exp-role">Rhode Island School of Design</span>
+          </li>
+          <li class="experience-item">
+            <span class="exp-date">Intern</span>
+            <span class="exp-role">Martha Baker Design</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Education Section -->
+      <div>
+        <div class="section-title">Education</div>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <span class="exp-date">Expected May 2027</span>
+            <span class="exp-role">Rhode Island School of Design</span>
+            <span class="exp-firm">Bachelor of Architecture</span>
+          </li>
+          <li class="experience-item">
+            <span class="exp-date">Jun 2024 — Aug 2024</span>
+            <span class="exp-role">Danish Institute for Study Abroad</span>
+            <span class="exp-firm">Furniture/Scandinavian Design</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-meta">
+    <span>Providence, RI</span>
+    <span>Greenwich, CT</span>
+    <span>New York, NY</span>
+  </div>
+
+  <!-- The Floating Hero Image -->
+  <div class="hover-image" id="hoverImage"></div>
+
+  <script>
+    const rows = document.querySelectorAll('.project-row');
+    const hoverImage = document.getElementById('hoverImage');
+
+    rows.forEach(row => {
+      row.addEventListener('mouseenter', (e) => {
+        const bgUrl = row.getAttribute('data-bg');
+        if(bgUrl) {
+            hoverImage.style.backgroundImage = `url('${bgUrl}')`;
+            hoverImage.style.opacity = '1';
+        }
+      });
+
+      row.addEventListener('mouseleave', () => {
+        hoverImage.style.opacity = '0';
+      });
+
+      row.addEventListener('mousemove', (e) => {
+        hoverImage.style.left = (e.clientX + 20) + 'px';
+        hoverImage.style.top = (e.clientY + 20) + 'px';
+      });
+    });
+  </script>
+</body>
+</html>
