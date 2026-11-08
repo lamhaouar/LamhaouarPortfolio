@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resin Architecture 2025 — Wells Lamhaouar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-paper: #FAFAFA;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --grid-lines: #E0E0E0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.6; 
+    overflow-x: hidden;
+  }
+
+  /* Top Bar - Fixed */
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--grid-lines);
+    background-color: var(--bg-paper);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    height: 50px;
+  }
+
+  .header-meta a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header-meta a:hover {
+    border-bottom-color: var(--text-main);
+  }
+
+  /* Bottom Bar - Fixed */
+  .footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-top: 1px solid var(--grid-lines);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-paper);
+    box-sizing: border-box;
+    z-index: 100;
+    height: 50px;
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px; 
+    gap: 40px;
+    min-height: 100vh;
+  }
+
+  /* LEFT Column - Fixed */
+  .sidebar {
+    grid-column: 1 / 5;
+    position: fixed;
+    top: 100px;
+    width: calc(33.33% - 60px); 
+    max-width: 450px;
+    z-index: 50;
+  }
+
+  /* Typography */
+  h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
+  
+  .profile-name {
+    font-size: 36px;
+    line-height: 1.0;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .profile-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px; 
+  }
+
+  .bio-text {
+    margin-bottom: 30px; 
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contact-links {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+  }
+  
+  .contact-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-main);
+    width: fit-content;
+  }
+  
+  .contact-links a:hover {
+    color: var(--text-muted);
+    border-bottom-color: var(--text-muted);
+  }
+
+  /* RIGHT Column */
+  .project-content {
+    grid-column: 6 / 13;
+    padding-top: 170px; 
+    padding-bottom: 100px;
+  }
+
+  /* FIXED Header - Full width to the right edge to prevent bleed */
+  .project-header-fixed {
+    position: fixed;
+    top: 50px; 
+    left: 41.66%; 
+    right: 0;     
+    background-color: var(--bg-paper);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    z-index: 80; 
+    border-bottom: 1px solid var(--grid-lines);
+    box-sizing: border-box;
+  }
+
+  /* Inner container to align the text with the images below */
+  .header-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .project-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .description p {
+    margin-bottom: 15px;
+  }
+
+  /* Image Grid */
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start; 
+  }
+
+  .image-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--grid-lines);
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
+  .caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+  }
+
+  /* --- MOBILE RESPONSIVE OVERRIDES --- */
+  @media (max-width: 900px) {
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .sidebar {
+      position: relative;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .project-content {
+      padding: 0;
+      width: 100%;
+    }
+
+    .project-header-fixed {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--grid-lines);
+    }
+
+    .header-inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .image-grid {
+      grid-template-columns: 1fr; 
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-meta">
+    <span><a href="index.html">← Index</a></span>
+    <span>Wells Lamhaouar</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- LEFT Column: Fixed Sidebar -->
+    <div class="sidebar">
+      <h1 class="profile-name">WELLS<br>LAMHAOUAR</h1>
+      <div class="profile-title">Bachelor of Architecture (5-Year) @ RISD<br>Concentration in Nature, Culture & Sustainability</div>
+      
+      <div class="bio-text">
+        I am an architecture student focusing on spatial design, material research, and visualization. My work explores how systems of assembly, environmental context, and material performance can inform the design of functional, sensitive spaces.
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
+        <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
+        <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
+      </div>
+    </div>
+
+    <!-- RIGHT Column: Project Content -->
+    <div class="project-content" id="projectContent">
+      
+      <!-- FIXED Header (Title & Meta) -->
+      <div class="project-header-fixed" id="fixedHeader">
+        <div class="header-inner">
+          <h1>Resin Architecture 2025</h1>
+          <div class="project-meta">
+            <span>2025</span>
+            <span>Adaptive Reuse / Community Center</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling Content -->
+      <div class="description">
+        <p>Common Grounds reimagines an existing warehouse as a two-part community resource center focused on natural living, foraging, and local food systems. By reusing the structure, the project reduces environmental impact while preserving local character.</p>
+
+        <p>A public-facing shop and plant nursery introduce ethical, community-oriented consumption, while an education and research wing offers hands-on learning through culinary, ecological, and botanical programs. Extended by outdoor vendor spaces and a reforested “living classroom,” the center fosters collective knowledge, ecological care, and community resilience through accessible, place-based learning.</p>
+      </div>
+
+      <div class="image-grid">
+        
+        <!-- Image 1 -->
+        <div class="image-item">
+          <img src="images/res-01.jpg" alt="Project Image">
+          <div class="caption">Fig. 01 — [Caption Here]</div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-item">
+          <img src="images/res-02.jpg" alt="Project Image">
+          <div class="caption">Fig. 02 — [Caption Here]</div>
+        </div>
+
+        <!-- Image 3 (Important) -->
+        <div class="image-item img-important">
+          <img src="images/res-03.jpg" alt="Project Image">
+          <div class="caption">Fig. 03 — [Caption Here]</div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="image-item">
+          <img src="images/res-04.jpg" alt="Project Image">
+          <div class="caption">Fig. 04 — [Caption Here]</div>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="image-item">
+          <img src="images/res-05.jpg" alt="Project Image">
+          <div class="caption">Fig. 05 — [Caption Here]</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-meta">
+    <span>Providence, RI</span>
+    <span>Greenwich, CT</span>
+    <span>New York, NY</span>
+  </div>
+
+  <script>
+    function adjustPadding() {
+      const header = document.getElementById('fixedHeader');
+      const content = document.getElementById('projectContent');
+      
+      if (header && content && window.innerWidth > 900) {
+        const headerHeight = header.offsetHeight;
+        content.style.paddingTop = (headerHeight + 40 + 50) + 'px'; 
+      } else if (content) {
+        content.style.paddingTop = '0px';
+      }
+    }
+
+    window.addEventListener('load', adjustPadding);
+    window.addEventListener('resize', adjustPadding);
+  </script>
+
+</body>
+</html>
