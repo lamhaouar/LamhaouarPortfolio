@@ -13,10 +13,10 @@
     --grid-lines: #E0E0E0;
     
     /* Strictly Non-Primary Hues (Secondary/Tertiary Only) */
-    --accent-purple: #C5A8D4;   /* Lavender/Lilac (Red + Blue) */
-    --accent-green: #A4D4B4;    /* Seafoam Green (Yellow + Blue) */
-    --accent-teal: #89C9C2;     /* Teal/Cyan (Green + Blue) */
-    --accent-orange: #E8B896;   /* Warm Terracotta/Peach (Red + Yellow) */
+    --accent-purple: #C5A8D4;   
+    --accent-green: #A4D4B4;    
+    --accent-teal: #89C9C2;     
+    --accent-orange: #E8B896;   
   }
 
   body {
@@ -25,8 +25,8 @@
     color: var(--text-main);
     margin: 0;
     padding: 0;
-    font-size: 13px;
-    line-height: 1.6; 
+    font-size: 12px; /* Slightly smaller base font */
+    line-height: 1.4; /* Tighter line height */
     overflow-x: hidden;
   }
 
@@ -37,7 +37,7 @@
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
-    padding: 20px 40px; 
+    padding: 12px 40px; /* Reduced padding */
     border-bottom: 1px solid var(--grid-lines);
   }
 
@@ -49,7 +49,7 @@
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
-    padding: 20px 40px; 
+    padding: 12px 40px; /* Reduced padding */
     border-top: 1px solid var(--grid-lines);
     position: fixed;
     bottom: 0;
@@ -66,41 +66,41 @@
     grid-template-columns: repeat(12, 1fr);
     max-width: 1600px;
     margin: 0 auto;
-    padding: 50px 40px 90px 40px; 
-    gap: 40px;
+    padding: 30px 40px 60px 40px; /* Reduced padding */
+    gap: 30px; /* Reduced gap */
   }
 
   /* Typography */
   h1, h2, h3 { margin: 0; font-weight: 700; }
   
   .profile-name {
-    font-size: 36px;
-    line-height: 1.1;
-    margin-bottom: 10px;
+    font-size: 32px;
+    line-height: 1.0;
+    margin-bottom: 8px;
     letter-spacing: -0.02em;
   }
 
   .profile-title {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
-    margin-bottom: 25px; 
+    margin-bottom: 15px; 
   }
 
   .bio-text {
-    margin-bottom: 35px; 
-    font-size: 14px;
-    line-height: 1.6;
+    margin-bottom: 25px; 
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .contact-links {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    margin-bottom: 45px; 
+    font-size: 10px;
+    margin-bottom: 20px; 
     display: flex;
     flex-direction: column;
-    gap: 8px; 
+    gap: 6px; 
   }
   
   .contact-links a {
@@ -117,12 +117,12 @@
 
   .section-title {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-bottom: 1px solid var(--text-main);
-    padding-bottom: 5px;
-    margin-bottom: 18px; 
+    padding-bottom: 3px;
+    margin-bottom: 12px; 
     display: block;
   }
 
@@ -133,8 +133,8 @@
     text-transform: uppercase;
     color: var(--text-muted);
     letter-spacing: 0.1em;
-    margin-top: 25px; 
-    margin-bottom: 8px; 
+    margin-top: 15px; 
+    margin-bottom: 5px; 
     padding-left: 50px; 
   }
 
@@ -148,7 +148,7 @@
     grid-column: 6 / 13;
     display: flex;
     flex-direction: column;
-    gap: 50px; 
+    gap: 25px; /* Hugely reduced gap between sections */
   }
 
   /* Projects */
@@ -160,9 +160,9 @@
 
   .project-row {
     display: grid;
-    grid-template-columns: 50px 1fr 120px 100px 40px;
+    grid-template-columns: 50px 1fr 120px 80px 30px;
     align-items: center;
-    padding: 12px 0; 
+    padding: 8px 0; /* Reduced padding */
     border-bottom: 1px solid var(--grid-lines);
     text-decoration: none;
     color: var(--text-main);
@@ -179,20 +179,20 @@
     border-bottom-color: transparent;
   }
 
-  .proj-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); }
-  .proj-name { font-size: 17px; font-weight: 700; } 
-  .proj-type { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
-  .proj-year { font-family: 'Space Mono', monospace; font-size: 11px; }
-  .proj-arrow { font-family: 'Space Mono', monospace; font-size: 14px; text-align: right; }
+  .proj-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-muted); }
+  .proj-name { font-size: 15px; font-weight: 700; } 
+  .proj-type { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--text-muted); text-transform: uppercase; }
+  .proj-year { font-family: 'Space Mono', monospace; font-size: 10px; }
+  .proj-arrow { font-family: 'Space Mono', monospace; font-size: 12px; text-align: right; }
 
   /* The Highlight Tags & Text */
   .tag {
     display: inline-block;
-    padding: 2px 6px;
+    padding: 1px 5px;
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 3px;
     color: #111; 
   }
   
@@ -201,9 +201,9 @@
   
   .tag-text {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 3px;
     margin-left: 4px;
     display: inline-block;
   }
@@ -214,7 +214,7 @@
   }
 
   .project-row.sub-item .proj-name {
-    font-size: 15px; 
+    font-size: 13px; 
     color: #444444; 
     font-weight: 600;
   }
@@ -235,8 +235,8 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px; 
+    grid-template-columns: repeat(3, 1fr); /* 3 columns to save vertical space */
+    gap: 10px; 
   }
 
   .experience-item {
@@ -246,13 +246,13 @@
 
   .exp-date {
     font-family: 'Space Mono', monospace;
-    font-size: 10px;
+    font-size: 9px;
     color: var(--text-muted);
-    margin-bottom: 2px;
+    margin-bottom: 1px;
   }
 
-  .exp-role { font-weight: 700; font-size: 14px; line-height: 1.3; }
-  .exp-firm { color: var(--text-muted); font-size: 13px; }
+  .exp-role { font-weight: 700; font-size: 12px; line-height: 1.2; }
+  .exp-firm { color: var(--text-muted); font-size: 11px; }
 
   /* The Floating Hero Image on Hover */
   .hover-image {
@@ -294,7 +294,6 @@
       <div class="contact-links">
         <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
         <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
-        <!-- Resume Link Added Here -->
         <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
       </div>
     </div>
@@ -316,7 +315,7 @@
               <span class="tag tag-orange">Competition</span>
               <span class="tag-text">- National Finalist</span>
             </div>
-            <span class="proj-type">Adaptive Reuse / Masterplan</span>
+            <span class="proj-type">Adaptive Reuse</span>
             <span class="proj-year">2025</span>
             <span class="proj-arrow">→</span>
           </a>
@@ -352,7 +351,7 @@
              data-bg="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop">
             <span class="proj-num">04</span>
             <div>
-              <div class="proj-name">Massachusetts Dept. of Transportation</div>
+              <div class="proj-name">Massachusetts DOT</div>
               <span class="tag tag-purple">Professional</span>
             </div>
             <span class="proj-type">Office</span>
