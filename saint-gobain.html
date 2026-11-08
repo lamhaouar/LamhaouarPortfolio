@@ -91,13 +91,19 @@
     margin-bottom: 15px;
     display: flex;
     gap: 20px;
+    align-items: center;
   }
 
+  /* Fixed highlight to only cover "Competition" */
   .tag {
     display: inline-block;
     padding: 2px 6px;
     background-color: var(--accent-orange);
     color: #111;
+    font-weight: 700;
+  }
+  
+  .tag-text {
     font-weight: 700;
   }
 
@@ -115,6 +121,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top: 20px;
+    align-items: start; 
   }
 
   .image-item {
@@ -128,6 +135,42 @@
     display: block;
     border: 1px solid var(--grid-lines);
     margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
+  /* Vertical Image Handling */
+  .img-vertical img {
+    max-height: 600px; 
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .img-vertical {
+    align-items: center;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--text-main);
+    margin: 40px 0 20px 0;
+    padding-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   .caption {
@@ -135,7 +178,19 @@
     font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
+    text-align: left;
+    width: 100%;
   }
+
+  /* --- Custom Ordering to fix layout gaps --- */
+  .order-1 { order: 1; }
+  .order-2 { order: 2; }
+  .order-3 { order: 3; }
+  .order-4 { order: 4; }
+  .order-5 { order: 5; }
+  .order-6 { order: 6; }
+  .order-7 { order: 7; }
+  .order-8 { order: 8; }
 
 </style>
 </head>
@@ -155,7 +210,7 @@
       <div class="project-meta">
         <span>2025</span>
         <span>Adaptive Reuse / Masterplan</span>
-        <span class="tag">Competition - National Finalist</span>
+        <span><span class="tag">Competition</span> <span class="tag-text">- National Finalist</span></span>
       </div>
       
       <div class="description">
@@ -167,75 +222,78 @@
     <div class="image-grid">
       
       <!-- Image 1 -->
-      <div class="image-item">
-        <img src="sg-01.jpg" alt="Site Plan">
-        <div class="caption">Fig. 01 — Site Plan</div>
+      <div class="image-item order-1">
+        <img src="images/sg-01.jpg" alt="Campus Model">
+        <div class="caption">Fig. 01 — Campus Physical Model</div>
       </div>
 
       <!-- Image 2 -->
-      <div class="image-item">
-        <img src="sg-02.jpg" alt="Exterior Render">
-        <div class="caption">Fig. 02 — Exterior Perspective</div>
+      <div class="image-item order-1">
+        <img src="images/sg-02.jpg" alt="Campus Model Detail">
+        <div class="caption">Fig. 02 — Campus Model Detail</div>
       </div>
 
-      <!-- Image 3 -->
-      <div class="image-item">
-        <img src="sg-03.jpg" alt="Ground Floor Plan">
-        <div class="caption">Fig. 03 — Ground Floor Plan</div>
+      <!-- Image 3 (Important) -->
+      <div class="image-item img-important order-2">
+        <img src="images/sg-03.jpg" alt="Aerial Render">
+        <div class="caption">Fig. 03 — Aerial Render of Campus</div>
       </div>
 
-      <!-- Image 4 -->
-      <div class="image-item">
-        <img src="sg-04.jpg" alt="Interior Render">
-        <div class="caption">Fig. 04 — Interior Atrium</div>
+      <!-- Image 8 (Moved up to sit next to Fig 6) -->
+      <div class="image-item order-3">
+        <img src="images/sg-08.jpg" alt="Communal Space Interior">
+        <div class="caption">Fig. 08 — Communal Space Interior</div>
       </div>
 
-      <!-- Image 5 -->
-      <div class="image-item">
-        <img src="sg-05.jpg" alt="Section Cut">
-        <div class="caption">Fig. 05 — Longitudinal Section</div>
+      <!-- Image 6 (Moved up to sit next to Fig 8) -->
+      <div class="image-item order-3">
+        <img src="images/sg-06.jpg" alt="Dorm Interior">
+        <div class="caption">Fig. 06 — Dormitory Accommodation Interior</div>
       </div>
 
-      <!-- Image 6 -->
-      <div class="image-item">
-        <img src="sg-06.jpg" alt="Material Study">
-        <div class="caption">Fig. 06 — Material Study</div>
+      <!-- Image 5 (Important - Moved above interiors) -->
+      <div class="image-item img-important order-4">
+        <img src="images/sg-05.jpg" alt="Dorm and Makerspace Plans">
+        <div class="caption">Fig. 05 — Dormitory & Makerspace Lab Plans</div>
       </div>
 
-      <!-- Image 7 -->
-      <div class="image-item">
-        <img src="sg-07.jpg" alt="Axonometric">
-        <div class="caption">Fig. 07 — Exploded Axonometric</div>
+      <!-- Image 7 (Moved to bottom of section) -->
+      <div class="image-item order-5">
+        <img src="images/sg-07.jpg" alt="Dorm Section">
+        <div class="caption">Fig. 07 — Dormitory Section Cut</div>
       </div>
 
-      <!-- Image 8 -->
-      <div class="image-item">
-        <img src="sg-08.jpg" alt="Roof Plan">
-        <div class="caption">Fig. 08 — Roof Plan</div>
+      <!-- Image 4 (Moved to bottom of section) -->
+      <div class="image-item order-5">
+        <img src="images/sg-04.jpg" alt="Masterplan">
+        <div class="caption">Fig. 04 — Campus Masterplan</div>
       </div>
 
-      <!-- Image 9 -->
-      <div class="image-item">
-        <img src="sg-09.jpg" alt="Elevation">
-        <div class="caption">Fig. 09 — South Elevation</div>
+      <!-- Divider and Sub-header for Satellite Community Center -->
+      <div class="section-divider order-6">Satellite Community Center (Adaptive Reuse)</div>
+
+      <!-- Image 9 (Vertical) -->
+      <div class="image-item img-vertical order-7">
+        <img src="images/sg-09.jpg" alt="Satellite Community Center Plans">
+        <div class="caption">Fig. 09 — Satellite Community Center Plans</div>
       </div>
 
       <!-- Image 10 -->
-      <div class="image-item">
-        <img src="sg-10.jpg" alt="Detail">
-        <div class="caption">Fig. 10 — Facade Detail</div>
+      <div class="image-item order-7">
+        <img src="images/sg-10.jpg" alt="Satellite Axonometric">
+        <div class="caption">Fig. 10 — Satellite Community Center Axonometric</div>
       </div>
 
       <!-- Image 11 -->
-      <div class="image-item">
-        <img src="sg-11.jpg" alt="Context Render">
-        <div class="caption">Fig. 11 — Contextual View</div>
+      <div class="image-item order-8">
+        <img src="images/sg-11.jpg" alt="Satellite Exterior">
+        <div class="caption">Fig. 11 — Satellite Community Center Exterior Render</div>
       </div>
 
-      <!-- Image 12 -->
-      <div class="image-item">
-        <img src="sg-12.jpg" alt="Diagram">
-        <div class="caption">Fig. 12 — Program Diagram</div>
+      <!-- Image 12 (Now Standard size next to exterior) -->
+      <div class="image-item order-8">
+        <img src="images/sg-12.jpg" alt="Satellite Interior">
+        <div class="caption">Fig. 12 — Satellite Community Center Interior Render</div>
       </div>
 
     </div>
