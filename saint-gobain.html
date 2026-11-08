@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saint Gobain — Wells Lamhaouar</title>
+<title>Saint Gobain - Student Architecture Competition — Wells Lamhaouar</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -94,7 +94,6 @@
     align-items: center;
   }
 
-  /* Fixed highlight to only cover "Competition" */
   .tag {
     display: inline-block;
     padding: 2px 6px;
@@ -112,6 +111,10 @@
     line-height: 1.6;
     max-width: 800px;
     margin-bottom: 20px;
+  }
+  
+  .description p {
+    margin-bottom: 15px;
   }
 
   /* Image Grid */
@@ -138,7 +141,6 @@
     object-fit: cover;
   }
 
-  /* Important Images span 2 columns */
   .img-important {
     grid-column: 1 / -1; 
   }
@@ -149,7 +151,6 @@
     background-color: #ffffff;
   }
 
-  /* Vertical Image Handling */
   .img-vertical img {
     max-height: 600px; 
     width: auto;
@@ -161,7 +162,6 @@
     align-items: center;
   }
 
-  /* Section Divider */
   .section-divider {
     grid-column: 1 / -1;
     border-top: 1px solid var(--text-main);
@@ -182,7 +182,7 @@
     width: 100%;
   }
 
-  /* --- Custom Ordering to fix layout gaps --- */
+  /* --- Custom Ordering --- */
   .order-1 { order: 1; }
   .order-2 { order: 2; }
   .order-3 { order: 3; }
@@ -206,7 +206,7 @@
 
     <!-- Project Header & Description -->
     <div class="project-header">
-      <h1>Saint Gobain</h1>
+      <h1>Saint Gobain - Student Architecture Competition</h1>
       <div class="project-meta">
         <span>2025</span>
         <span>Adaptive Reuse / Masterplan</span>
@@ -214,7 +214,9 @@
       </div>
       
       <div class="description">
-        <p>The Saint-Gobain Student Architecture Competition challenged students to design a sustainable, adaptive reuse scheme for a hypothetical campus. Our proposal focused on material performance, environmental responsiveness, and spatial integration. By treating the existing structures as a framework rather than a constraint, we developed a masterplan that minimizes carbon footprint while creating a vibrant, mixed-use community hub. The project was recognized as a National Finalist.</p>
+        <p>As students enter the campus, they are met with the freedom to choose their own path. Meandering walkways guide them through a sequence of public and private spaces shaped by canopy, topography, and architecture, offering views of protected forest and the surrounding town. Interior spaces are organized around truss roof systems and clustered programs, each offering framed views of the landscape. The campus begins at Les Grands Ateliers and follows the natural slope of the site, culminating in a space for reflection.</p>
+
+        <p>Constructed entirely from wheat straw and hemp harvested from nearby farmland, the campus embodies a sustainable ethos. The program encourages students to engage deeply—to learn, reflect, and build a sense of community.</p>
       </div>
     </div>
 
@@ -229,8 +231,8 @@
 
       <!-- Image 2 -->
       <div class="image-item order-1">
-        <img src="images/sg-02.jpg" alt="Campus Model Detail">
-        <div class="caption">Fig. 02 — Campus Model Detail</div>
+        <img src="images/sg-02.jpg" alt="Campus Model">
+        <div class="caption">Fig. 02 — Campus Physical Model</div>
       </div>
 
       <!-- Image 3 (Important) -->
@@ -239,37 +241,37 @@
         <div class="caption">Fig. 03 — Aerial Render of Campus</div>
       </div>
 
-      <!-- Image 8 (Moved up to sit next to Fig 6) -->
+      <!-- Image 8 -->
       <div class="image-item order-3">
         <img src="images/sg-08.jpg" alt="Communal Space Interior">
         <div class="caption">Fig. 08 — Communal Space Interior</div>
       </div>
 
-      <!-- Image 6 (Moved up to sit next to Fig 8) -->
+      <!-- Image 6 -->
       <div class="image-item order-3">
         <img src="images/sg-06.jpg" alt="Dorm Interior">
         <div class="caption">Fig. 06 — Dormitory Accommodation Interior</div>
       </div>
 
-      <!-- Image 5 (Important - Moved above interiors) -->
+      <!-- Image 5 (Important) -->
       <div class="image-item img-important order-4">
         <img src="images/sg-05.jpg" alt="Dorm and Makerspace Plans">
         <div class="caption">Fig. 05 — Dormitory & Makerspace Lab Plans</div>
       </div>
 
-      <!-- Image 7 (Moved to bottom of section) -->
+      <!-- Image 7 -->
       <div class="image-item order-5">
         <img src="images/sg-07.jpg" alt="Dorm Section">
         <div class="caption">Fig. 07 — Dormitory Section Cut</div>
       </div>
 
-      <!-- Image 4 (Moved to bottom of section) -->
+      <!-- Image 4 -->
       <div class="image-item order-5">
         <img src="images/sg-04.jpg" alt="Masterplan">
         <div class="caption">Fig. 04 — Campus Masterplan</div>
       </div>
 
-      <!-- Divider and Sub-header for Satellite Community Center -->
+      <!-- Divider -->
       <div class="section-divider order-6">Satellite Community Center (Adaptive Reuse)</div>
 
       <!-- Image 9 (Vertical) -->
@@ -290,7 +292,7 @@
         <div class="caption">Fig. 11 — Satellite Community Center Exterior Render</div>
       </div>
 
-      <!-- Image 12 (Now Standard size next to exterior) -->
+      <!-- Image 12 -->
       <div class="image-item order-8">
         <img src="images/sg-12.jpg" alt="Satellite Interior">
         <div class="caption">Fig. 12 — Satellite Community Center Interior Render</div>
