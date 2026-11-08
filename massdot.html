@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Massachusetts DOT — Wells Lamhaouar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-paper: #FAFAFA;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --grid-lines: #E0E0E0;
+    --accent-purple: #C5A8D4;   
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.6; 
+    overflow-x: hidden;
+  }
+
+  /* Top Metadata Bar */
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--grid-lines);
+  }
+
+  .header-meta a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header-meta a:hover {
+    border-bottom-color: var(--text-main);
+  }
+
+  /* Bottom Metadata Bar */
+  .footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-top: 1px solid var(--grid-lines);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-paper);
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 80px 40px; 
+    gap: 40px;
+  }
+
+  /* Typography */
+  h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
+  
+  .project-header {
+    grid-column: 1 / 9;
+    margin-bottom: 30px;
+  }
+
+  .project-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: var(--accent-purple);
+    color: #111;
+    font-weight: 700;
+  }
+  
+  .tag-text {
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .description p {
+    margin-bottom: 15px;
+  }
+
+  /* Image Grid */
+  .image-grid {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start; 
+  }
+
+  .image-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--grid-lines);
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
+  .caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-meta">
+    <span><a href="index.html">← Index</a></span>
+    <span>Wells Lamhaouar</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- Project Header & Description -->
+    <div class="project-header">
+      <h1>Massachusetts Department of Transportation</h1>
+      <div class="project-meta">
+        <span>2025</span>
+        <span>Office</span>
+        <span><span class="tag">Professional</span></span>
+      </div>
+      
+      <div class="description">
+        <p>Add your project description here. You can describe the scope of the office design, the specific tasks you handled, or how the design supported the DOT's operations.</p>
+      </div>
+    </div>
+
+    <!-- 5 Images with Captions -->
+    <div class="image-grid">
+      
+      <!-- Image 1 (Important) -->
+      <div class="image-item img-important">
+        <img src="images/dot-01.jpg" alt="Project Image">
+        <div class="caption">Fig. 01 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="image-item">
+        <img src="images/dot-02.jpg" alt="Project Image">
+        <div class="caption">Fig. 02 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="image-item">
+        <img src="images/dot-03.jpg" alt="Project Image">
+        <div class="caption">Fig. 03 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 4 -->
+      <div class="image-item">
+        <img src="images/dot-04.jpg" alt="Project Image">
+        <div class="caption">Fig. 04 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 5 -->
+      <div class="image-item">
+        <img src="images/dot-05.jpg" alt="Project Image">
+        <div class="caption">Fig. 05 — [Caption Here]</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-meta">
+    <span>Providence, RI</span>
+    <span>Greenwich, CT</span>
+    <span>New York, NY</span>
+  </div>
+
+</body>
+</html>
