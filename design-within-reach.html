@@ -141,6 +141,17 @@
     object-fit: cover;
   }
 
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
   .caption {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -179,85 +190,85 @@
     <!-- 14 Images with Captions -->
     <div class="image-grid">
       
-      <!-- Image 1 -->
-      <div class="image-item">
+      <!-- Image 1 (Important) -->
+      <div class="image-item img-important">
         <img src="images/dwr-01.jpg" alt="DWR Austin Design Services">
         <div class="caption">Fig. 01 — Austin: Design Services</div>
       </div>
 
-      <!-- Image 2 -->
+      <!-- Image 2 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-02.jpg" alt="DWR Westport Design Services">
         <div class="caption">Fig. 02 — Westport: Design Services</div>
       </div>
 
-      <!-- Image 3 -->
-      <div class="image-item">
-        <img src="images/dwr-03.jpg" alt="DWR Miami Design Services">
-        <div class="caption">Fig. 03 — Miami: Design Services</div>
-      </div>
-
-      <!-- Image 4 -->
-      <div class="image-item">
-        <img src="images/dwr-04.jpg" alt="DWR Miami Design Services">
-        <div class="caption">Fig. 04 — Miami: Design Services</div>
-      </div>
-
-      <!-- Image 5 -->
+      <!-- Image 5 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-05.jpg" alt="Austin Task Seating">
         <div class="caption">Fig. 05 — Austin: Task Seating</div>
       </div>
 
-      <!-- Image 6 -->
+      <!-- Image 3 (Important) -->
+      <div class="image-item img-important">
+        <img src="images/dwr-03.jpg" alt="DWR Miami Design Services">
+        <div class="caption">Fig. 03 — Miami: Design Services</div>
+      </div>
+
+      <!-- Image 4 (Standard) -->
+      <div class="image-item">
+        <img src="images/dwr-04.jpg" alt="DWR Miami Design Services">
+        <div class="caption">Fig. 04 — Miami: Design Services</div>
+      </div>
+
+      <!-- Image 6 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-06.jpg" alt="Miami Task Seating">
         <div class="caption">Fig. 06 — Miami: Task Seating</div>
       </div>
 
-      <!-- Image 7 -->
-      <div class="image-item">
-        <img src="images/dwr-07.jpg" alt="Austin Chair Wall">
-        <div class="caption">Fig. 07 — Austin: Chair Wall</div>
-      </div>
-
-      <!-- Image 8 -->
-      <div class="image-item">
-        <img src="images/dwr-08.jpg" alt="Miami Chair Wall">
-        <div class="caption">Fig. 08 — Miami: Chair Wall</div>
-      </div>
-
-      <!-- Image 9 -->
+      <!-- Image 9 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-09.jpg" alt="Westport Cash and Carry">
         <div class="caption">Fig. 09 — Westport: Cash & Carry</div>
       </div>
 
-      <!-- Image 10 -->
+      <!-- Image 8 (Standard - swapped size with 7) -->
+      <div class="image-item">
+        <img src="images/dwr-08.jpg" alt="Miami Chair Wall">
+        <div class="caption">Fig. 08 — Miami: Chair Wall</div>
+      </div>
+
+      <!-- Image 7 (Important - swapped size with 8) -->
+      <div class="image-item img-important">
+        <img src="images/dwr-07.jpg" alt="Austin Chair Wall">
+        <div class="caption">Fig. 07 — Austin: Chair Wall</div>
+      </div>
+
+      <!-- Image 10 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-10.jpg" alt="Milwaukee Chair Wall">
         <div class="caption">Fig. 10 — Milwaukee: Chair Wall</div>
       </div>
 
-      <!-- Image 11 -->
+      <!-- Image 11 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-11.jpg" alt="West Hollywood Design Services">
         <div class="caption">Fig. 11 — West Hollywood: Design Services</div>
       </div>
 
-      <!-- Image 12 -->
+      <!-- Image 13 (Important) -->
+      <div class="image-item img-important">
+        <img src="images/dwr-13.jpg" alt="Westport Outdoor Furniture">
+        <div class="caption">Fig. 13 — Westport: Outdoor Furniture</div>
+      </div>
+
+      <!-- Image 12 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-12.jpg" alt="Milwaukee Store">
         <div class="caption">Fig. 12 — Milwaukee: Retail Environment</div>
       </div>
 
-      <!-- Image 13 -->
-      <div class="image-item">
-        <img src="images/dwr-13.jpg" alt="Westport Outdoor Furniture">
-        <div class="caption">Fig. 13 — Westport: Outdoor Furniture</div>
-      </div>
-
-      <!-- Image 14 -->
+      <!-- Image 14 (Standard) -->
       <div class="image-item">
         <img src="images/dwr-14.jpg" alt="Austin Outdoor Furniture">
         <div class="caption">Fig. 14 — Austin: Outdoor Furniture</div>
