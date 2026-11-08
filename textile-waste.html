@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Textile Waste — Wells Lamhaouar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-paper: #FAFAFA;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --grid-lines: #E0E0E0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.6; 
+    overflow-x: hidden;
+  }
+
+  /* Top Metadata Bar */
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--grid-lines);
+  }
+
+  .header-meta a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header-meta a:hover {
+    border-bottom-color: var(--text-main);
+  }
+
+  /* Bottom Metadata Bar */
+  .footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-top: 1px solid var(--grid-lines);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-paper);
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 80px 40px; 
+    gap: 40px;
+  }
+
+  /* Typography */
+  h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
+  
+  .project-header {
+    grid-column: 1 / 9;
+    margin-bottom: 30px;
+  }
+
+  .project-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .description p {
+    margin-bottom: 15px;
+  }
+
+  /* Image Grid */
+  .image-grid {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start; 
+  }
+
+  .image-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--grid-lines);
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
+  .caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-meta">
+    <span><a href="index.html">← Index</a></span>
+    <span>Wells Lamhaouar</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- Project Header & Description -->
+    <div class="project-header">
+      <h1>Textile Waste</h1>
+      <div class="project-meta">
+        <span>2026</span>
+        <span>Material Study</span>
+      </div>
+      
+      <div class="description">
+        <p>Developed for the Muuto Design Contest, this project is a series of trays and stands designed around the transition between indoor and outdoor living. The trays move between context, serving as a surface for preparation inside, a vessel for carrying food and objects outdoors, and a shared platter once placed in its final setting. Used independently or elevated on a stand, the system adapts to different environments and occasions, encouraging a more fluid relationship between interior and exterior space.</p>
+
+        <p>The trays are made from recycled textile scraps, giving discarded materials a second life in a durable, functional object. The textile waste is processed and formed into trays, creating a tactile and varied surface that reflects its recycled origin. By transforming waste into an everyday object intended for repeated use, the project explores how material circularity can become an integral part of both the object’s function and character.</p>
+      </div>
+    </div>
+
+    <!-- 5 Images -->
+    <div class="image-grid">
+      
+      <!-- Image 2 (Standard) -->
+      <div class="image-item">
+        <img src="images/tw-02.jpg" alt="Project Image">
+        <div class="caption">Fig. 02 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 3 (Standard) -->
+      <div class="image-item">
+        <img src="images/tw-03.jpg" alt="Project Image">
+        <div class="caption">Fig. 03 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 1 (Important, placed below 2 & 3) -->
+      <div class="image-item img-important">
+        <img src="images/tw-01.jpg" alt="Project Image">
+        <div class="caption">Fig. 01 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 4 (Standard) -->
+      <div class="image-item">
+        <img src="images/tw-04.jpg" alt="Project Image">
+        <div class="caption">Fig. 04 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 5 (Standard) -->
+      <div class="image-item">
+        <img src="images/tw-05.jpg" alt="Project Image">
+        <div class="caption">Fig. 05 — [Caption Here]</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-meta">
+    <span>Providence, RI</span>
+    <span>Greenwich, CT</span>
+    <span>New York, NY</span>
+  </div>
+
+</body>
+</html>
