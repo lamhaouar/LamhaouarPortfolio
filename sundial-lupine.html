@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sundial Lupine — Wells Lamhaouar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-paper: #FAFAFA;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --grid-lines: #E0E0E0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.6; 
+    overflow-x: hidden;
+  }
+
+  /* Top Metadata Bar */
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--grid-lines);
+  }
+
+  .header-meta a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header-meta a:hover {
+    border-bottom-color: var(--text-main);
+  }
+
+  /* Bottom Metadata Bar */
+  .footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-top: 1px solid var(--grid-lines);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-paper);
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 80px 40px; 
+    gap: 40px;
+  }
+
+  /* Typography */
+  h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
+  
+  .project-header {
+    grid-column: 1 / 9;
+    margin-bottom: 30px;
+  }
+
+  .project-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .description p {
+    margin-bottom: 15px;
+  }
+
+  /* Image Grid - Custom Layout for 2 Vertical + 1 Square */
+  .image-grid {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start; 
+  }
+
+  .image-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--grid-lines);
+    margin-bottom: 10px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
+  .caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-meta">
+    <span><a href="index.html">← Index</a></span>
+    <span>Wells Lamhaouar</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- Project Header & Description -->
+    <div class="project-header">
+      <h1>Sundial Lupine</h1>
+      <div class="project-meta">
+        <span>2026</span>
+        <span>Conservation</span>
+      </div>
+      
+      <div class="description">
+        <p>As an effort to preserve the native sundial lupine (an at-risk species in the northeastern US), I developed biodegradable planting vessels for germination and use in RISD’s landscape test plot. The plant’s fragile taproot makes transplanting difficult, often leading to failure of establishment. These vessels allow the lupine to grow without being disturbed during transfer. The entire container is planted directly into the ground, where it breaks down and lets the root system extend naturally, reducing damage and improving survival rates.</p>
+
+        <p>The vessels are made from starch and recycled cardboard scraps sourced from RISD’s architecture department. The mixture is cooked and then cast into molds to form the final shape. As the plant is watered, moisture gradually softens and deforms the vessel, but not to a degree that compromises the plant’s stability or growth prior to planting.</p>
+      </div>
+    </div>
+
+    <!-- 3 Images -->
+    <div class="image-grid">
+      
+      <!-- Image 1 (Vertical) -->
+      <div class="image-item">
+        <img src="images/sl-01.jpg" alt="Vertical Image 1">
+        <div class="caption">Fig. 01 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 2 (Vertical) -->
+      <div class="image-item">
+        <img src="images/sl-02.jpg" alt="Vertical Image 2">
+        <div class="caption">Fig. 02 — [Caption Here]</div>
+      </div>
+
+      <!-- Image 3 (Square) -->
+      <div class="image-item">
+        <img src="images/sl-03.jpg" alt="Square Image">
+        <div class="caption">Fig. 03 — [Caption Here]</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-meta">
+    <span>Providence, RI</span>
+    <span>Greenwich, CT</span>
+    <span>New York, NY</span>
+  </div>
+
+</body>
+</html>
