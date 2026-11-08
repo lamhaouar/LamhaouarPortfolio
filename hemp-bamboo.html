@@ -128,6 +128,17 @@
     object-fit: cover;
   }
 
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
   .caption {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -158,15 +169,15 @@
       </div>
       
       <div class="description">
-        <p>Add your project description here. You can describe the material properties, the testing process, or your findings from studying hemp and bamboo.</p>
+        <p>This project is an experimental assembly system designed for eco-tourism cabins. The structure explores the integration of hempcrete for thermal mass, tensioned straps for shear resistance, and invasive bamboo harvested locally for structural framing and cladding. By utilizing these alternative materials, the project aims to create a sustainable, low-carbon building system that responds to its ecological context.</p>
       </div>
     </div>
 
     <!-- 10 Images -->
     <div class="image-grid">
       
-      <!-- Image 1 -->
-      <div class="image-item">
+      <!-- Image 1 (Important) -->
+      <div class="image-item img-important">
         <img src="images/hb-01.jpg" alt="Assembly Ethos">
         <div class="caption">Fig. 01 — Assembly Ethos</div>
       </div>
@@ -219,8 +230,8 @@
         <div class="caption">Fig. 09 — 1:1 Chunk</div>
       </div>
 
-      <!-- Image 10 -->
-      <div class="image-item">
+      <!-- Image 10 (Important) -->
+      <div class="image-item img-important">
         <img src="images/hb-10.jpg" alt="1:1 Chunk">
         <div class="caption">Fig. 10 — 1:1 Chunk</div>
       </div>
