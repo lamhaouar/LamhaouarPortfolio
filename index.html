@@ -270,6 +270,35 @@
     border: 1px solid var(--grid-lines);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
+
+  /* --- MOBILE RESPONSIVE OVERRIDES --- */
+  @media (max-width: 900px) {
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 60px 20px;
+    }
+
+    /* Make sure sidebar and main content take full width and stack */
+    .sidebar, .main-content {
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    /* Adjust the grid columns for the project rows so they fit on smaller screens */
+    .project-row {
+      grid-template-columns: 30px 1fr 80px 20px;
+    }
+
+    .proj-type {
+      display: none; /* Hide the project type on mobile to save space */
+    }
+
+    /* Stack the experience and education grids into a single column on mobile */
+    .experience-list {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
 <body>
@@ -463,27 +492,33 @@
   <div class="hover-image" id="hoverImage"></div>
 
   <script>
-    const rows = document.querySelectorAll('.project-row');
-    const hoverImage = document.getElementById('hoverImage');
+    // Check if the user is on a mobile device using User Agent
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    rows.forEach(row => {
-      row.addEventListener('mouseenter', (e) => {
-        const bgUrl = row.getAttribute('data-bg');
-        if(bgUrl) {
-            hoverImage.style.backgroundImage = `url('${bgUrl}')`;
-            hoverImage.style.opacity = '1';
-        }
-      });
+    // Only run the hover logic if it is NOT a mobile device
+    if (!isMobile) {
+      const rows = document.querySelectorAll('.project-row');
+      const hoverImage = document.getElementById('hoverImage');
 
-      row.addEventListener('mouseleave', () => {
-        hoverImage.style.opacity = '0';
-      });
+      rows.forEach(row => {
+        row.addEventListener('mouseenter', (e) => {
+          const bgUrl = row.getAttribute('data-bg');
+          if(bgUrl) {
+              hoverImage.style.backgroundImage = `url('${bgUrl}')`;
+              hoverImage.style.opacity = '1';
+          }
+        });
 
-      row.addEventListener('mousemove', (e) => {
-        hoverImage.style.left = (e.clientX + 20) + 'px';
-        hoverImage.style.top = (e.clientY + 20) + 'px';
+        row.addEventListener('mouseleave', () => {
+          hoverImage.style.opacity = '0';
+        });
+
+        row.addEventListener('mousemove', (e) => {
+          hoverImage.style.left = (e.clientX + 20) + 'px';
+          hoverImage.style.top = (e.clientY + 20) + 'px';
+        });
       });
-    });
+    }
   </script>
 </body>
 </html>
