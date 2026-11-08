@@ -279,22 +279,19 @@
       padding: 20px 20px 60px 20px;
     }
 
-    /* Make sure sidebar and main content take full width and stack */
     .sidebar, .main-content {
       width: 100%;
       grid-column: 1 / -1;
     }
 
-    /* Adjust the grid columns for the project rows so they fit on smaller screens */
     .project-row {
       grid-template-columns: 30px 1fr 80px 20px;
     }
 
     .proj-type {
-      display: none; /* Hide the project type on mobile to save space */
+      display: none; 
     }
 
-    /* Stack the experience and education grids into a single column on mobile */
     .experience-list {
       grid-template-columns: 1fr;
     }
@@ -417,7 +414,7 @@
           <a href="hemp-bamboo.html" class="project-row sub-item" data-bg="images/hb-10.jpg">
             <span class="proj-num">07</span>
             <div>
-              <div class="proj-name">Hemp / Bamboo</div>
+              <div class="proj-name">Eco Cabin</div>
             </div>
             <span class="proj-type">Material Study</span>
             <span class="proj-year">2026</span>
@@ -425,7 +422,7 @@
           </a>
 
           <!-- Sustainability Project 4 -->
-          <a href="avian-study.html" class="project-row sub-item" data-bg="images/av-01.jpg">
+          <a href="avian-study.html" class="project-row sub-item" data-bg="images/av-05.jpg">
             <span class="proj-num">08</span>
             <div>
               <div class="proj-name">Avian Study</div>
@@ -492,10 +489,8 @@
   <div class="hover-image" id="hoverImage"></div>
 
   <script>
-    // Check if the user is on a mobile device using User Agent
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    // Only run the hover logic if it is NOT a mobile device
     if (!isMobile) {
       const rows = document.querySelectorAll('.project-row');
       const hoverImage = document.getElementById('hoverImage');
