@@ -254,6 +254,16 @@
   .exp-role { font-weight: 700; font-size: 12px; line-height: 1.2; }
   .exp-firm { color: var(--text-muted); font-size: 11px; }
 
+  /* NEW: Brand List styling */
+  .exp-brands {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+
   /* The Floating Hero Image on Hover */
   .hover-image-container {
     position: fixed;
@@ -482,6 +492,7 @@
           <li class="experience-item">
             <span class="exp-date">Interiors Intern</span>
             <span class="exp-role">MillerKnoll</span>
+            <span class="exp-brands">DWR, Herman Miller, Knoll, Geiger, and NaughtOne</span>
           </li>
           <li class="experience-item">
             <span class="exp-date">Architectural Intern</span>
@@ -541,7 +552,6 @@
       const hoverCaption = document.getElementById('hoverCaption');
 
       rows.forEach(row => {
-        // Check if this row is part of the sustainability list
         const isSustainability = row.classList.contains('sub-item');
 
         row.addEventListener('mouseenter', (e) => {
@@ -560,13 +570,10 @@
         });
 
         row.addEventListener('mousemove', (e) => {
-          // If it's a sustainability project, position it ABOVE the mouse
           if (isSustainability) {
-            // We subtract the height of the container (roughly 350px) so it sits above
             hoverContainer.style.left = (e.clientX + 20) + 'px';
             hoverContainer.style.top = (e.clientY - 350) + 'px'; 
           } else {
-            // Standard behavior (below the mouse)
             hoverContainer.style.left = (e.clientX + 20) + 'px';
             hoverContainer.style.top = (e.clientY + 20) + 'px';
           }
