@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saint Gobain - Student Architecture Competition — Wells Lamhaouar</title>
+<title>Saint Gobain — Wells Lamhaouar</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -25,7 +25,7 @@
     overflow-x: hidden;
   }
 
-  /* Top Metadata Bar */
+  /* Top Bar - Fixed */
   .header-meta {
     display: flex;
     justify-content: space-between;
@@ -34,6 +34,14 @@
     text-transform: uppercase;
     padding: 15px 40px;
     border-bottom: 1px solid var(--grid-lines);
+    background-color: var(--bg-paper);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    height: 50px;
   }
 
   .header-meta a {
@@ -46,7 +54,7 @@
     border-bottom-color: var(--text-main);
   }
 
-  /* Bottom Metadata Bar */
+  /* Bottom Bar - Fixed */
   .footer-meta {
     display: flex;
     justify-content: center;
@@ -62,7 +70,8 @@
     width: 100%;
     background-color: var(--bg-paper);
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 100;
+    height: 50px;
   }
 
   /* Main Layout */
@@ -71,16 +80,93 @@
     grid-template-columns: repeat(12, 1fr);
     max-width: 1600px;
     margin: 0 auto;
-    padding: 40px 40px 80px 40px; 
+    padding: 0 40px; 
     gap: 40px;
+    min-height: 100vh;
+  }
+
+  /* LEFT Column - Fixed */
+  .sidebar {
+    grid-column: 1 / 5;
+    position: fixed;
+    top: 100px;
+    width: calc(33.33% - 60px); 
+    max-width: 450px;
+    z-index: 50;
   }
 
   /* Typography */
   h1 { margin: 0; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; }
   
-  .project-header {
-    grid-column: 1 / 9;
-    margin-bottom: 30px;
+  .profile-name {
+    font-size: 36px;
+    line-height: 1.0;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .profile-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px; 
+  }
+
+  .bio-text {
+    margin-bottom: 30px; 
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contact-links {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+  }
+  
+  .contact-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-main);
+    width: fit-content;
+  }
+  
+  .contact-links a:hover {
+    color: var(--text-muted);
+    border-bottom-color: var(--text-muted);
+  }
+
+  /* RIGHT Column */
+  .project-content {
+    grid-column: 6 / 13;
+    padding-top: 170px; 
+    padding-bottom: 100px;
+  }
+
+  /* FIXED Header - Full width to the right edge to prevent bleed */
+  .project-header-fixed {
+    position: fixed;
+    top: 50px; 
+    left: 41.66%; /* Starts exactly where the right column starts */
+    right: 0;     /* Stretches all the way to the right edge */
+    background-color: var(--bg-paper);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    z-index: 80; 
+    border-bottom: 1px solid var(--grid-lines);
+    box-sizing: border-box;
+  }
+
+  /* Inner container to align the text with the images below */
+  .header-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
   .project-meta {
@@ -119,7 +205,6 @@
 
   /* Image Grid */
   .image-grid {
-    grid-column: 1 / 13;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -182,16 +267,47 @@
     width: 100%;
   }
 
-  /* --- Custom Ordering --- */
-  .order-1 { order: 1; }
-  .order-2 { order: 2; }
-  .order-3 { order: 3; }
-  .order-4 { order: 4; }
-  .order-5 { order: 5; }
-  .order-6 { order: 6; }
-  .order-7 { order: 7; }
-  .order-8 { order: 8; }
+  /* --- MOBILE RESPONSIVE OVERRIDES --- */
+  @media (max-width: 900px) {
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
 
+    .sidebar {
+      position: relative;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .project-content {
+      padding: 0;
+      width: 100%;
+    }
+
+    /* Change fixed header back to relative on mobile */
+    .project-header-fixed {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--grid-lines);
+    }
+
+    .header-inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .image-grid {
+      grid-template-columns: 1fr; 
+    }
+  }
 </style>
 </head>
 <body>
@@ -204,100 +320,116 @@
 
   <div class="main-container">
 
-    <!-- Project Header & Description -->
-    <div class="project-header">
-      <h1>Saint Gobain - Student Architecture Competition</h1>
-      <div class="project-meta">
-        <span>2025</span>
-        <span>Adaptive Reuse / Masterplan</span>
-        <span><span class="tag">Competition</span> <span class="tag-text">- National Finalist</span></span>
-      </div>
+    <!-- LEFT Column: Fixed Sidebar -->
+    <div class="sidebar">
+      <h1 class="profile-name">WELLS<br>LAMHAOUAR</h1>
+      <div class="profile-title">Bachelor of Architecture (5-Year) @ RISD<br>Concentration in Nature, Culture & Sustainability</div>
       
+      <div class="bio-text">
+        I am an architecture student focusing on spatial design, material research, and visualization. My work explores how systems of assembly, environmental context, and material performance can inform the design of functional, sensitive spaces.
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
+        <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
+        <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
+      </div>
+    </div>
+
+    <!-- RIGHT Column: Project Content -->
+    <div class="project-content" id="projectContent">
+      
+      <!-- FIXED Header (Title & Meta) -->
+      <div class="project-header-fixed" id="fixedHeader">
+        <div class="header-inner">
+          <h1>Saint Gobain - Student Architecture Competition</h1>
+          <div class="project-meta">
+            <span>2025</span>
+            <span>Adaptive Reuse / Masterplan</span>
+            <span><span class="tag">Competition</span> <span class="tag-text">- National Finalist</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling Content -->
       <div class="description">
         <p>As students enter the campus, they are met with the freedom to choose their own path. Meandering walkways guide them through a sequence of public and private spaces shaped by canopy, topography, and architecture, offering views of protected forest and the surrounding town. Interior spaces are organized around truss roof systems and clustered programs, each offering framed views of the landscape. The campus begins at Les Grands Ateliers and follows the natural slope of the site, culminating in a space for reflection.</p>
 
         <p>Constructed entirely from wheat straw and hemp harvested from nearby farmland, the campus embodies a sustainable ethos. The program encourages students to engage deeply—to learn, reflect, and build a sense of community.</p>
       </div>
-    </div>
 
-    <!-- 12 Images with Captions -->
-    <div class="image-grid">
-      
-      <!-- Image 1 -->
-      <div class="image-item order-1">
-        <img src="images/sg-01.jpg" alt="Campus Model">
-        <div class="caption">Fig. 01 — Campus Physical Model</div>
+      <div class="image-grid">
+        
+        <!-- Image 1 -->
+        <div class="image-item">
+          <img src="images/sg-01.jpg" alt="Campus Model">
+          <div class="caption">Fig. 01 — Campus Physical Model</div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-item">
+          <img src="images/sg-02.jpg" alt="Campus Model">
+          <div class="caption">Fig. 02 — Campus Physical Model</div>
+        </div>
+
+        <!-- Image 3 (Important) -->
+        <div class="image-item img-important">
+          <img src="images/sg-03.jpg" alt="Aerial Render">
+          <div class="caption">Fig. 03 — Aerial Render of Campus</div>
+        </div>
+
+        <!-- Image 8 -->
+        <div class="image-item">
+          <img src="images/sg-08.jpg" alt="Communal Space Interior">
+          <div class="caption">Fig. 08 — Communal Space Interior</div>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="image-item">
+          <img src="images/sg-06.jpg" alt="Dorm Interior">
+          <div class="caption">Fig. 06 — Dormitory Accommodation Interior</div>
+        </div>
+
+        <!-- Image 5 (Important) -->
+        <div class="image-item img-important">
+          <img src="images/sg-05.jpg" alt="Dorm and Makerspace Plans">
+          <div class="caption">Fig. 05 — Dormitory & Makerspace Lab Plans</div>
+        </div>
+
+        <!-- Image 4 (Now Important) -->
+        <div class="image-item img-important">
+          <img src="images/sg-04.jpg" alt="Masterplan">
+          <div class="caption">Fig. 04 — Campus Masterplan</div>
+        </div>
+
+        <!-- Divider -->
+        <div class="section-divider">Satellite Community Center (Adaptive Reuse)</div>
+
+        <!-- Image 9 (Vertical) -->
+        <div class="image-item img-vertical">
+          <img src="images/sg-09.jpg" alt="Satellite Community Center Plans">
+          <div class="caption">Fig. 09 — Satellite Community Center Plans</div>
+        </div>
+
+        <!-- Image 10 -->
+        <div class="image-item">
+          <img src="images/sg-10.jpg" alt="Satellite Axonometric">
+          <div class="caption">Fig. 10 — Satellite Community Center Axonometric</div>
+        </div>
+
+        <!-- Image 11 -->
+        <div class="image-item">
+          <img src="images/sg-11.jpg" alt="Satellite Exterior">
+          <div class="caption">Fig. 11 — Satellite Community Center Exterior Render</div>
+        </div>
+
+        <!-- Image 12 -->
+        <div class="image-item">
+          <img src="images/sg-12.jpg" alt="Satellite Interior">
+          <div class="caption">Fig. 12 — Satellite Community Center Interior Render</div>
+        </div>
+
       </div>
-
-      <!-- Image 2 -->
-      <div class="image-item order-1">
-        <img src="images/sg-02.jpg" alt="Campus Model">
-        <div class="caption">Fig. 02 — Campus Physical Model</div>
-      </div>
-
-      <!-- Image 3 (Important) -->
-      <div class="image-item img-important order-2">
-        <img src="images/sg-03.jpg" alt="Aerial Render">
-        <div class="caption">Fig. 03 — Aerial Render of Campus</div>
-      </div>
-
-      <!-- Image 8 -->
-      <div class="image-item order-3">
-        <img src="images/sg-08.jpg" alt="Communal Space Interior">
-        <div class="caption">Fig. 08 — Communal Space Interior</div>
-      </div>
-
-      <!-- Image 6 -->
-      <div class="image-item order-3">
-        <img src="images/sg-06.jpg" alt="Dorm Interior">
-        <div class="caption">Fig. 06 — Dormitory Accommodation Interior</div>
-      </div>
-
-      <!-- Image 5 (Important) -->
-      <div class="image-item img-important order-4">
-        <img src="images/sg-05.jpg" alt="Dorm and Makerspace Plans">
-        <div class="caption">Fig. 05 — Dormitory & Makerspace Lab Plans</div>
-      </div>
-
-      <!-- Image 7 -->
-      <div class="image-item order-5">
-        <img src="images/sg-07.jpg" alt="Dorm Section">
-        <div class="caption">Fig. 07 — Dormitory Section Cut</div>
-      </div>
-
-      <!-- Image 4 -->
-      <div class="image-item order-5">
-        <img src="images/sg-04.jpg" alt="Masterplan">
-        <div class="caption">Fig. 04 — Campus Masterplan</div>
-      </div>
-
-      <!-- Divider -->
-      <div class="section-divider order-6">Satellite Community Center (Adaptive Reuse)</div>
-
-      <!-- Image 9 (Vertical) -->
-      <div class="image-item img-vertical order-7">
-        <img src="images/sg-09.jpg" alt="Satellite Community Center Plans">
-        <div class="caption">Fig. 09 — Satellite Community Center Plans</div>
-      </div>
-
-      <!-- Image 10 -->
-      <div class="image-item order-7">
-        <img src="images/sg-10.jpg" alt="Satellite Axonometric">
-        <div class="caption">Fig. 10 — Satellite Community Center Axonometric</div>
-      </div>
-
-      <!-- Image 11 -->
-      <div class="image-item order-8">
-        <img src="images/sg-11.jpg" alt="Satellite Exterior">
-        <div class="caption">Fig. 11 — Satellite Community Center Exterior Render</div>
-      </div>
-
-      <!-- Image 12 -->
-      <div class="image-item order-8">
-        <img src="images/sg-12.jpg" alt="Satellite Interior">
-        <div class="caption">Fig. 12 — Satellite Community Center Interior Render</div>
-      </div>
-
     </div>
   </div>
 
@@ -307,6 +439,23 @@
     <span>Greenwich, CT</span>
     <span>New York, NY</span>
   </div>
+
+  <script>
+    function adjustPadding() {
+      const header = document.getElementById('fixedHeader');
+      const content = document.getElementById('projectContent');
+      
+      if (header && content && window.innerWidth > 900) {
+        const headerHeight = header.offsetHeight;
+        content.style.paddingTop = (headerHeight + 40 + 50) + 'px'; 
+      } else if (content) {
+        content.style.paddingTop = '0px';
+      }
+    }
+
+    window.addEventListener('load', adjustPadding);
+    window.addEventListener('resize', adjustPadding);
+  </script>
 
 </body>
 </html>
