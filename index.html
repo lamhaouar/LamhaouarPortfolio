@@ -255,20 +255,38 @@
   .exp-firm { color: var(--text-muted); font-size: 11px; }
 
   /* The Floating Hero Image on Hover */
-  .hover-image {
+  .hover-image-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 400px;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
+    background-color: #FFFFFF; 
+    padding: 10px 10px 15px 10px; 
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
     z-index: 100;
-    border: 1px solid var(--grid-lines);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    box-sizing: border-box;
+  }
+
+  .hover-image {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* The Caption */
+  .hover-caption {
+    width: 100%;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-top: 10px;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
   }
 
   /* --- MOBILE RESPONSIVE OVERRIDES --- */
@@ -334,7 +352,8 @@
           
           <!-- Project 1 -->
           <a href="saint-gobain.html" class="project-row" 
-             data-bg="images/sg-03.jpg">
+             data-bg="images/sg-03.jpg"
+             data-desc="Fig. 01 — A sustainable campus masterplan constructed entirely from wheat straw and hemp.">
             <span class="proj-num">01</span>
             <div>
               <div class="proj-name">Saint Gobain</div>
@@ -346,9 +365,10 @@
             <span class="proj-arrow">→</span>
           </a>
 
-          <!-- Project 2: RESIN ARCHITECTURE MOVED HERE -->
+          <!-- Project 2 -->
           <a href="resin-architecture.html" class="project-row"
-             data-bg="images/res-01.jpg">
+             data-bg="images/res-01.jpg"
+             data-desc="Fig. 02 — Reimagining a warehouse into a community resource center for local food systems.">
             <span class="proj-num">02</span>
             <div>
               <div class="proj-name">Resin Architecture</div>
@@ -361,7 +381,8 @@
 
           <!-- Project 3 -->
           <a href="design-within-reach.html" class="project-row"
-             data-bg="images/dwr-01.jpg">
+             data-bg="images/dwr-01.jpg"
+             data-desc="Fig. 03 — A spatial analysis and 3D visualization of the Design Within Reach retail fleet.">
             <span class="proj-num">03</span>
             <div>
               <div class="proj-name">Design Within Reach</div>
@@ -374,7 +395,8 @@
 
           <!-- Project 4 -->
           <a href="boys-girls-club.html" class="project-row"
-             data-bg="images/bgc-01.jpg">
+             data-bg="images/bgc-01.jpg"
+             data-desc="Fig. 04 — High-quality Revit visualizations for the Boys and Girls Club of Waltham.">
             <span class="proj-num">04</span>
             <div>
               <div class="proj-name">Boys and Girls Club</div>
@@ -387,7 +409,8 @@
 
           <!-- Project 5 -->
           <a href="massdot.html" class="project-row"
-             data-bg="images/dot-01.jpg">
+             data-bg="images/dot-01.jpg"
+             data-desc="Fig. 05 — Iterative material finish studies for the Massachusetts Department of Transportation.">
             <span class="proj-num">05</span>
             <div>
               <div class="proj-name">Massachusetts DOT</div>
@@ -402,7 +425,8 @@
           <div class="sub-header">Sustainability</div>
 
           <!-- Sustainability Project 1 -->
-          <a href="sundial-lupine.html" class="project-row sub-item" data-bg="images/sl-01.jpg">
+          <a href="sundial-lupine.html" class="project-row sub-item" data-bg="images/sl-01.jpg"
+             data-desc="Fig. 06 — Biodegradable planting vessels designed to preserve the native Sundial Lupine.">
             <span class="proj-num">06</span>
             <div>
               <div class="proj-name">Sundial Lupine</div>
@@ -413,7 +437,8 @@
           </a>
 
           <!-- Sustainability Project 2 -->
-          <a href="textile-waste.html" class="project-row sub-item" data-bg="images/tw-01.jpg">
+          <a href="textile-waste.html" class="project-row sub-item" data-bg="images/tw-01.jpg"
+             data-desc="Fig. 07 — A series of trays made from recycled textile scraps for the Muuto Design Contest.">
             <span class="proj-num">07</span>
             <div>
               <div class="proj-name">Textile Waste</div>
@@ -424,7 +449,8 @@
           </a>
 
           <!-- Sustainability Project 3 -->
-          <a href="hemp-bamboo.html" class="project-row sub-item" data-bg="images/hb-10.jpg">
+          <a href="hemp-bamboo.html" class="project-row sub-item" data-bg="images/hb-10.jpg"
+             data-desc="Fig. 08 — An experimental assembly system for eco-tourism cabins using hempcrete and bamboo.">
             <span class="proj-num">08</span>
             <div>
               <div class="proj-name">Eco Cabin</div>
@@ -435,7 +461,8 @@
           </a>
 
           <!-- Sustainability Project 4 -->
-          <a href="avian-study.html" class="project-row sub-item" data-bg="images/av-05.jpg">
+          <a href="avian-study.html" class="project-row sub-item" data-bg="images/av-05.jpg"
+             data-desc="Fig. 09 — Ecological research and visual studies of bird species at RISD Farm.">
             <span class="proj-num">09</span>
             <div>
               <div class="proj-name">Avian Study</div>
@@ -498,32 +525,51 @@
     <span>New York, NY</span>
   </div>
 
-  <!-- The Floating Hero Image -->
-  <div class="hover-image" id="hoverImage"></div>
+  <!-- The Floating Hero Image & Caption -->
+  <div class="hover-image-container" id="hoverContainer">
+    <div class="hover-image" id="hoverImage"></div>
+    <div class="hover-caption" id="hoverCaption"></div>
+  </div>
 
   <script>
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     if (!isMobile) {
       const rows = document.querySelectorAll('.project-row');
+      const hoverContainer = document.getElementById('hoverContainer');
       const hoverImage = document.getElementById('hoverImage');
+      const hoverCaption = document.getElementById('hoverCaption');
 
       rows.forEach(row => {
+        // Check if this row is part of the sustainability list
+        const isSustainability = row.classList.contains('sub-item');
+
         row.addEventListener('mouseenter', (e) => {
           const bgUrl = row.getAttribute('data-bg');
+          const desc = row.getAttribute('data-desc');
+          
           if(bgUrl) {
               hoverImage.style.backgroundImage = `url('${bgUrl}')`;
-              hoverImage.style.opacity = '1';
+              hoverCaption.innerText = desc || ''; 
+              hoverContainer.style.opacity = '1';
           }
         });
 
         row.addEventListener('mouseleave', () => {
-          hoverImage.style.opacity = '0';
+          hoverContainer.style.opacity = '0';
         });
 
         row.addEventListener('mousemove', (e) => {
-          hoverImage.style.left = (e.clientX + 20) + 'px';
-          hoverImage.style.top = (e.clientY + 20) + 'px';
+          // If it's a sustainability project, position it ABOVE the mouse
+          if (isSustainability) {
+            // We subtract the height of the container (roughly 350px) so it sits above
+            hoverContainer.style.left = (e.clientX + 20) + 'px';
+            hoverContainer.style.top = (e.clientY - 350) + 'px'; 
+          } else {
+            // Standard behavior (below the mouse)
+            hoverContainer.style.left = (e.clientX + 20) + 'px';
+            hoverContainer.style.top = (e.clientY + 20) + 'px';
+          }
         });
       });
     }
