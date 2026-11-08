@@ -141,6 +141,17 @@
     object-fit: cover;
   }
 
+  /* Important Images span 2 columns */
+  .img-important {
+    grid-column: 1 / -1; 
+  }
+
+  .img-important img {
+    max-height: 800px;
+    object-fit: contain; 
+    background-color: #ffffff;
+  }
+
   .caption {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -149,6 +160,21 @@
     text-align: left;
     width: 100%;
   }
+
+  /* Visual Ordering */
+  .order-1 { order: 1; }
+  .order-2 { order: 2; }
+  .order-3 { order: 3; }
+  .order-4 { order: 4; }
+  .order-5 { order: 5; }
+  .order-6 { order: 6; }
+  .order-7 { order: 7; }
+  .order-8 { order: 8; }
+  .order-9 { order: 9; }
+  .order-10 { order: 10; }
+  .order-11 { order: 11; }
+  .order-12 { order: 12; }
+  .order-13 { order: 13; }
 
 </style>
 </head>
@@ -174,93 +200,87 @@
       <div class="description">
         <p>During my internship with Austin Architects, I was responsible for producing a series of high-quality visualizations for the firm’s ongoing Boys and Girls Club of Waltham, MA project. I developed the renders using Revit’s native rendering environment, ensuring accurate representation of design intent, materiality, and lighting.</p>
 
-        <p>I then refined and enhanced the images through post-production in Photoshop, adjusting color balance, contrast, and composition to create compelling and client-ready presentations.</p>
+        <p>I then refined and enhanced the images through post-processing in Photoshop, adjusting color balance, contrast, and composition to create compelling and client-ready presentations.</p>
       </div>
     </div>
 
-    <!-- 14 Images with Captions -->
+    <!-- 13 Images with Captions -->
     <div class="image-grid">
       
-      <!-- Image 1 -->
-      <div class="image-item">
+      <!-- Image 1 (Important) -->
+      <div class="image-item img-important order-1">
         <img src="images/bgc-01.jpg" alt="Main Atrium">
         <div class="caption">Fig. 01 — Main Atrium</div>
       </div>
 
       <!-- Image 2 -->
-      <div class="image-item">
+      <div class="image-item order-2">
         <img src="images/bgc-02.jpg" alt="Main Atrium">
         <div class="caption">Fig. 02 — Main Atrium</div>
       </div>
 
       <!-- Image 3 -->
-      <div class="image-item">
+      <div class="image-item order-3">
         <img src="images/bgc-03.jpg" alt="Main Atrium">
         <div class="caption">Fig. 03 — Main Atrium</div>
       </div>
 
+      <!-- Image 6 (Important) -->
+      <div class="image-item img-important order-4">
+        <img src="images/bgc-06.jpg" alt="Main Entry">
+        <div class="caption">Fig. 06 — Main Entry</div>
+      </div>
+
       <!-- Image 4 -->
-      <div class="image-item">
+      <div class="image-item order-5">
         <img src="images/bgc-04.jpg" alt="Main Atrium">
         <div class="caption">Fig. 04 — Main Atrium</div>
       </div>
 
       <!-- Image 5 -->
-      <div class="image-item">
+      <div class="image-item order-6">
         <img src="images/bgc-05.jpg" alt="Main Entry">
         <div class="caption">Fig. 05 — Main Entry</div>
       </div>
 
-      <!-- Image 6 -->
-      <div class="image-item">
-        <img src="images/bgc-06.jpg" alt="Main Entry">
-        <div class="caption">Fig. 06 — Main Entry</div>
-      </div>
-
-      <!-- Image 7 -->
-      <div class="image-item">
+      <!-- Image 7 (Important) -->
+      <div class="image-item img-important order-7">
         <img src="images/bgc-07.jpg" alt="Main Entry">
         <div class="caption">Fig. 07 — Main Entry</div>
       </div>
 
       <!-- Image 8 -->
-      <div class="image-item">
+      <div class="image-item order-8">
         <img src="images/bgc-08.jpg" alt="Main Entry">
         <div class="caption">Fig. 08 — Main Entry</div>
       </div>
 
       <!-- Image 9 -->
-      <div class="image-item">
+      <div class="image-item order-9">
         <img src="images/bgc-09.jpg" alt="Classroom">
         <div class="caption">Fig. 09 — Classroom</div>
       </div>
 
       <!-- Image 10 -->
-      <div class="image-item">
+      <div class="image-item order-10">
         <img src="images/bgc-10.jpg" alt="Classroom">
         <div class="caption">Fig. 10 — Classroom</div>
       </div>
 
       <!-- Image 11 -->
-      <div class="image-item">
+      <div class="image-item order-11">
         <img src="images/bgc-11.jpg" alt="Art Classroom">
         <div class="caption">Fig. 11 — Art Classroom</div>
       </div>
 
       <!-- Image 12 -->
-      <div class="image-item">
+      <div class="image-item order-12">
         <img src="images/bgc-12.jpg" alt="Classroom">
         <div class="caption">Fig. 12 — Classroom</div>
       </div>
 
-      <!-- Image 13 -->
-      <div class="image-item">
-        <img src="images/bgc-13.jpg" alt="Multi-Use Space">
-        <div class="caption">Fig. 13 — Multi-Use Space / Gym</div>
-      </div>
-
-      <!-- Image 14 -->
-      <div class="image-item">
+      <!-- Image 14 (Replacing 13) -->
+      <div class="image-item order-13">
         <img src="images/bgc-14.jpg" alt="Multi-Use Space">
         <div class="caption">Fig. 14 — Multi-Use Space / Gym</div>
       </div>
