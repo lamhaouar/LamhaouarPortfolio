@@ -97,7 +97,7 @@
   .contact-links {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    margin-bottom: 20px; 
+    margin-bottom: 25px; 
     display: flex;
     flex-direction: column;
     gap: 6px; 
@@ -113,6 +113,58 @@
   .contact-links a:hover {
     color: var(--text-muted);
     border-bottom-color: var(--text-muted);
+  }
+
+  /* Press / Article Section */
+  .press-section {
+    margin-bottom: 25px;
+  }
+
+  .press-item {
+    display: flex;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    align-items: flex-start;
+    transition: opacity 0.2s ease;
+    margin-bottom: 15px;
+  }
+
+  .press-item:hover {
+    opacity: 0.7;
+  }
+
+  .press-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid var(--grid-lines);
+    flex-shrink: 0;
+  }
+
+  .press-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .press-source {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .press-title {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .press-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
   }
 
   .section-title {
@@ -354,7 +406,7 @@
 
   <div class="main-container">
 
-    <!-- LEFT Column: Name, Bio, Contact -->
+    <!-- LEFT Column: Name, Bio, Contact, Press -->
     <div class="sidebar">
       <h1 class="profile-name">WELLS<br>LAMHAOUAR</h1>
       <div class="profile-title">Bachelor of Architecture (5-Year) @ RISD<br>Concentration in Nature, Culture & Sustainability</div>
@@ -367,6 +419,31 @@
         <a href="mailto:rlamhaou@risd.edu">rlamhaou@risd.edu</a>
         <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
         <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
+      </div>
+
+      <!-- Press Section -->
+      <div class="press-section">
+        <div class="section-title">Press</div>
+        
+        <!-- Article 1: RISD Kahn Studio -->
+        <a href="https://www.risd.edu/news/stories/risd-students-design-site-specific-furniture-inspired-late-architect-louis-kahn" target="_blank" class="press-item">
+          <img class="press-image" src="https://www.risd.edu/sites/default/files/styles/landscape_2_1_1540x770/public/2025-10/DSC08453.jpg?h=caf26d13&itok=ae8pYQQt" alt="RISD News Article">
+          <div class="press-content">
+            <span class="press-source">RISD News</span>
+            <span class="press-title">RISD Students Design Site-Specific Furniture Inspired by Late Architect Louis Kahn</span>
+            <span class="press-date">Oct 20, 2025</span>
+          </div>
+        </a>
+
+        <!-- Article 2: Saint Gobain Competition -->
+        <a href="https://www.linkedin.com/posts/risd-risd1877-risdarch-ugcPost-7328093841348042753-hj7e/" target="_blank" class="press-item">
+          <img class="press-image" src="images/sg-03.jpg" alt="Saint Gobain Competition">
+          <div class="press-content">
+            <span class="press-source">RISD LinkedIn</span>
+            <span class="press-title">Second Place Awarded in the United States National Round of the Saint-Gobain Architecture Student Contest</span>
+            <span class="press-date">May 13, 2025</span>
+          </div>
+        </a>
       </div>
 
       <!-- The hover description will appear here -->
