@@ -299,6 +299,19 @@
     line-height: 1.4;
   }
 
+  /* Floating Description in the Left Sidebar */
+  .hover-description {
+    margin-top: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 400px;
+    min-height: 60px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
   /* --- MOBILE RESPONSIVE OVERRIDES --- */
   @media (max-width: 900px) {
     .main-container {
@@ -322,6 +335,11 @@
 
     .experience-list {
       grid-template-columns: 1fr;
+    }
+
+    /* Hide hover features on mobile */
+    .hover-image-container, .hover-description {
+      display: none;
     }
   }
 </style>
@@ -350,6 +368,9 @@
         <a href="https://www.linkedin.com/in/wells-lamhaouar-453244262" target="_blank">LinkedIn</a>
         <a href="Wells_Lamhaouar_Resume.pdf" target="_blank">Resume (PDF)</a>
       </div>
+
+      <!-- The hover description will appear here -->
+      <div class="hover-description" id="hoverDescText"></div>
     </div>
 
     <!-- RIGHT Column: Projects, then Experience below -->
@@ -507,7 +528,7 @@
           <li class="experience-item">
             <span class="exp-date">Design Intern</span>
             <span class="exp-role">Martha Baker Design</span>
-            <span class="exp-details">Residential (Greenwich, Hamptons, NYC) </span>
+            <span class="exp-details">Residential</span>
           </li>
         </ul>
       </div>
@@ -542,7 +563,6 @@
   <!-- The Floating Hero Image & Caption -->
   <div class="hover-image-container" id="hoverContainer">
     <div class="hover-image" id="hoverImage"></div>
-    <div class="hover-caption" id="hoverCaption"></div>
   </div>
 
   <script>
@@ -552,7 +572,7 @@
       const rows = document.querySelectorAll('.project-row');
       const hoverContainer = document.getElementById('hoverContainer');
       const hoverImage = document.getElementById('hoverImage');
-      const hoverCaption = document.getElementById('hoverCaption');
+      const hoverDescText = document.getElementById('hoverDescText');
 
       rows.forEach(row => {
         const isSustainability = row.classList.contains('sub-item');
@@ -563,13 +583,15 @@
           
           if(bgUrl) {
               hoverImage.style.backgroundImage = `url('${bgUrl}')`;
-              hoverCaption.innerText = desc || ''; 
+              hoverDescText.innerText = desc || ''; 
               hoverContainer.style.opacity = '1';
+              hoverDescText.style.opacity = '1';
           }
         });
 
         row.addEventListener('mouseleave', () => {
           hoverContainer.style.opacity = '0';
+          hoverDescText.style.opacity = '0';
         });
 
         row.addEventListener('mousemove', (e) => {
